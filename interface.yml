@@ -1,0 +1,31 @@
+interface:
+    action: /user/login
+    method: POST
+    header:
+        Content-Type: application/json
+        SessionId: asjdkfjalskdjfla
+    params: ""
+    form-data:
+        name:
+            - kentz
+            - ajskdfjalsdj
+            - abc
+            - "!@$ASDF"
+            - null
+            - ""
+        password:
+            - 123456
+            - 123435234
+            - jsdflajdslkf
+            - null
+        MD5:
+            - True
+            - False
+        include:
+            - kentz@123456
+        except:
+            - abc@123456
+
+
+
+response: null
