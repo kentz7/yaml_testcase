@@ -1,31 +1,51 @@
 interface:
+    global:
+          - var_name = interface0 param0=value0
+    precondition:
+          - interface1 param1=value1 param2=value2
+          - interface2 param3=value3 param3=value3
+
+    postcondition:
+          - interface1 param1=value1 param2=value2
+          - interface2 param3=value3 param3=value3
+
+    procedure:
+          - interface1 param1=value1 param2=value2
+          - interface2 param3=value3 param3=value3
+
+    url: http://aaa.com/
+
+    auth:
+          Username: "****"
+          Password: "****"
+
     action: /user/login
     method: POST
+
+    # Header不写的话就是用默认值
     header:
         Content-Type: application/json
         SessionId: asjdkfjalskdjfla
-    params: ""
-    form-data:
+
+    # Body就是API对应的参数
+    body:
         name:
-            - kentz
-            - ajskdfjalsdj
-            - abc
-            - "!@$ASDF"
-            - null
-            - ""
+            type: string
+            values:
+                - kentz
+                - ajskdfjalsdj
+                - abc
+                - "!@#$ASDF"
+                - null
+                - “"
         password:
-            - 123456
-            - 123435234
-            - jsdflajdslkf
-            - null
-        MD5:
-            - True
-            - False
-        include:
-            - kentz@123456
+            type: string
+            values:
+                - 123456
+                - 123435234
+                - jsdflajdslkf
+                - null
+                - “"
         except:
-            - abc@123456
-
-
-
-response: null
+          - '{"username": "kentz", "passwd": "123456” }'
+          - '{"username:" "abc", "passwd":"123456” }'

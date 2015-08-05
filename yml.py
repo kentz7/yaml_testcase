@@ -22,7 +22,7 @@ def assemble_wrap_lst(src_lst, dst_lst):
 
 # 将Yaml提供的字典类型转换成列表类型
 def yaml_dict2list(dcts):
-    return [[key, form_data[key]] for key in form_data]
+    return [[key, form_data[key]["values"]] for key in form_data]
 
 # 排列组合
 def data_combination(form_data):
@@ -39,10 +39,8 @@ if __name__ == "__main__":
     f = open("interface.yml")
     x = yaml.load(f)
 
-    form_data = x["interface"]["form-data"]
-    include = form_data["include"]
+    form_data = x["interface"]["body"]
     excep = form_data["except"]
-    form_data.pop("include")
     form_data.pop("except")
 
     print data_combination(form_data)
