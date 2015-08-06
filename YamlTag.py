@@ -17,3 +17,5 @@ class YamlTag():
     Except = "except"
     Values = "values"
     Type = "type"
+    Username = "username"
+    Password = "password"

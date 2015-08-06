@@ -2,9 +2,9 @@
 
 # HTTP 默认值
 HTTP_DEFAULT = {
-    "auth": (),
-    "url": "http://api.91wasai.com",
-    "method": "GET",
+    "auth": {},
+    "url": "http://api.91wasai.com/v2",
+    "method": "POST",
     "action": "/",
     "header": {
         "Content-Type": "application/json"
