@@ -59,7 +59,7 @@ class YamlInterface():
     # 排列组合
     def data_combine(self):
         # 将Yaml提供的字典类型转换成列表类型
-        # 返回类型如：["name", ["value,", "value2", "value3"], ["password", ["value1", "value2", "value3"]]]
+        # 返回类型如: ["name", ["value,", "value2", "value3"], ["password", ["value1", "value2", "value3"]]]
         yamlLst = []
         for key in self.body:
             if self.body[key].has_key(YamlTag.Values):
@@ -84,7 +84,7 @@ class YamlInterface():
 
 
     # lst的格式: ["name", ["value,", "value2", "value3"]]
-    # 返回形如[{"name":"value1"}, {"name":"value2"}, {"name":"value3"}]
+    # 返回形如: [{"name":"value1"}, {"name":"value2"}, {"name":"value3"}]
     def lst_dict_lst(self, lst):
         key = lst[0] # 列表第一个元素为key
         values = lst[1] # 列表第二个元素为一个列表，列举该key下的可选值
@@ -103,5 +103,5 @@ class YamlInterface():
 
 
 if __name__ == "__main__":
-    interface = YamlInterface("interface.yml")
+    interface = YamlInterface("interface/user_login.yml")
     interface.execute()

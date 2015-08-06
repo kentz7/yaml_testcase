@@ -16,8 +16,8 @@ interface:
     url: http://aaa.com
 
     auth:
-          Username: "****"
-          Password: "****"
+          Username: kentz
+          Password: “123456”
 
     action: /user/login
     method: GET
@@ -25,7 +25,6 @@ interface:
     # Header不写的话就是用默认值
     header:
         Content-Type: application/json
-        SessionId: asjdkfjalskdjfla
 
     # Body就是API对应的参数
     body:
@@ -37,15 +36,15 @@ interface:
                 - abc
                 - "!@#$ASDF"
                 - null
-                - “"
+                - ""
         password:
             type: string
             values:
-                - 123456
-                - 123435234
+                - "123456"
+                - "123435234"
                 - jsdflajdslkf
                 - null
-                - “"
+                - ""
     except:
-      - '{"username": "kentz", "passwd": "123456” }'
-      - '{"username:" "abc", "passwd":"123456” }'
+      - '{"username": "kentz", "password": "123456” }'
+      - '{"username:" "abc", "password":"123456” }'

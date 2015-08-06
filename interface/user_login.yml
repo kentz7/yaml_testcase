@@ -1,0 +1,43 @@
+interface:
+    url: http://api.91wasai.com/v2
+
+    # auth:
+    #       Username: "13480987546"
+    #       Password: "123456"
+
+    action: /user/login
+    method: POST
+
+    # Header不写的话就是用默认值
+    header:
+        #Content-Type: application/json
+        sessionid: "-10-3824-11-110-105387-44-84-13030413851"
+
+    # Body就是API对应的参数
+    body:
+        identify_id:
+            type: string
+            values:
+                - "kentz"
+                - "13480987546"
+                - "!@#$ASDF"
+                - null
+                - ""
+        identify_type:
+            type: string
+            values:
+                - "phone"
+                - "qq"
+                - "weixin"
+                - null
+                - ""
+        password:
+            type: string
+            values:
+                - "e10adc3949ba59abbe56e057f20f883e"
+                - "asdfasdfasdfasdfasdfasd"
+                - null
+                - ""
+    # except:
+    #   - '{"username": "kentz", "password": "123456” }'
+    #   - '{"username:" "abc", "password":"123456” }'
