@@ -31,7 +31,6 @@ interface:
     body:
         name:
             type: string
-            default: ""
             values:
                 - kentz
                 - ajskdfjalsdj
@@ -41,7 +40,6 @@ interface:
                 - “"
         password:
             type: string
-            default: ""
             values:
                 - 123456
                 - 123435234
