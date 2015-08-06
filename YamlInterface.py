@@ -13,27 +13,16 @@ class YamlInterface():
     def __init__(self, yml_file_path):
         api = self.api_content(yml_file_path)
 
-        # Body = api[YamlTag.Body]
-        # #Except = Body[YamlTag.Except]
-        # Auth = api[YamlTag.Auth]
-        # Method = api[YamlTag.Method]
-        # Global = api[YamlTag.Global]
-        # Precondition = api[YamlTag.Precondition]
-        # Procedure = api[YamlTag.Procedure]
-        # Postcondition = api[YamlTag.Postcondition]
-        # Url = api[YamlTag.Url]
-        # Header = api[YamlTag.Header]
-
         # if api.has_key(YamlTag.Body) and api.has_key(YamlTag.Procedure):
         #     print "不允许同时配置Body和Procedure标签"
         #     return None
 
         # Yaml请求
-        self.request = YamlHttpRequest(api[YamlTag.Url],
-                                       api[YamlTag.Auth],
-                                       api[YamlTag.Header],
-                                       api[YamlTag.Method],
-                                       api[YamlTag.Action])
+        self.request = YamlHttpRequest(YamlHelper.http_option(api, YamlTag.Url),
+                                       YamlHelper.http_option(api, YamlTag.Auth),
+                                       YamlHelper.http_option(api, YamlTag.Header),
+                                       YamlHelper.http_option(api, YamlTag.Method),
+                                       YamlHelper.http_option(api, YamlTag.Action))
         # 请求的主体
         self.body = api[YamlTag.Body]
 
@@ -59,6 +48,12 @@ class YamlInterface():
         yml_dict = yaml.load(yml_file)
         return yml_dict[YamlTag.Interface]
 
+
+    # 发送请求
+    def execute(self):
+        print "开始执行接口用例"
+        for data_item in self.data_combination:
+            self.request.invoke(data_item)
 
 
     # 排列组合
@@ -107,8 +102,6 @@ class YamlInterface():
         return assemble_lst
 
 
-
-
-
 if __name__ == "__main__":
-    YamlInterface("interface.yml")
+    interface = YamlInterface("interface.yml")
+    interface.execute()

@@ -13,14 +13,14 @@ interface:
           - interface1 param1=value1 param2=value2
           - interface2 param3=value3 param3=value3
 
-    url: http://aaa.com/
+    url: http://aaa.com
 
     auth:
           Username: "****"
           Password: "****"
 
     action: /user/login
-    method: POST
+    method: GET
 
     # Header不写的话就是用默认值
     header:
