@@ -15,3 +15,5 @@ class YamlTag():
     Header = "header"
     Body = "body"
     Except = "except"
+    Values = "values"
+    Type = "type"

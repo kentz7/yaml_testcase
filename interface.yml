@@ -48,6 +48,6 @@ interface:
                 - jsdflajdslkf
                 - null
                 - “"
-        except:
-          - '{"username": "kentz", "passwd": "123456” }'
-          - '{"username:" "abc", "passwd":"123456” }'
+    except:
+      - '{"username": "kentz", "passwd": "123456” }'
+      - '{"username:" "abc", "passwd":"123456” }'

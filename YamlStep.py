@@ -1,4 +1,6 @@
 #encoding:utf-8
 
 class YamlStep():
-    pass
+
+    def __init__(self):
+        pass
