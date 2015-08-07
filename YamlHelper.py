@@ -35,3 +35,24 @@ def same_prefix(pre_string, post_string):
     if flag == 0:
         return None
     return pre_string[0:flag+1]
+
+
+# 比较两个字典，以src_dict为准
+def left_cmp_dict(src_dict, dst_dict):
+    for key in src_dict:
+        # 递归比较
+        if type(src_dict[key]) is dict:
+            flag = left_cmp_dict(src_dict[key], dst_dict[key])
+            if not flag:
+                return False
+        else:
+            # 如果右侧的字典没有key，则返回False
+            if not dst_dict.has_key(key):
+                print "右侧字典没有key: {0}".format(key)
+                return False
+            if not src_dict[key] == dst_dict[key]:
+                print "字典值不一致"
+                print "src_dict[{0}]: {1}".format(key, src_dict[key])
+                print "dst_dict[{0}]: {1}".format(key, dst_dict[key])
+                return False
+    return True

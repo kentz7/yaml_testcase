@@ -19,3 +19,4 @@ class YamlTag():
     Type = "type"
     Username = "username"
     Password = "password"
+    Response = "response"

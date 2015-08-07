@@ -78,7 +78,7 @@ class YamlInterface():
         # 读写文件
         # 如果已经存在该配置了，则忽略
         old_yml_dict = yaml.load(open(self.response_file, "r"))
-
+        response_dict = yaml.load(response.text)
         res_file = open(self.response_file, "a")
 
 
@@ -90,21 +90,22 @@ class YamlInterface():
             key_str = key_str + str(item[1]) + "_"
         key_str = key_str[0:len(key_str)-1]
 
-        res_dict = {}
+        result_dict = {}
         # 先要判断key是否存在，如果存在则不做任何处理，不存在则插入
         if (old_yml_dict is None) or (not old_yml_dict.has_key(key_str)):
             print "插入新的key: {0}".format(key_str)
-            res_dict[key_str] = data_item
-            res_dict[key_str]["response"] = yaml.load(response.text)
-            yaml.dump(res_dict, res_file, default_flow_style=False, indent=4)
+            result_dict[key_str] = data_item
+            result_dict[key_str][YamlTag.Response] = response_dict
+            yaml.dump(result_dict, res_file, default_flow_style=False, indent=4)
             res_file.write("\n")
         else:
             print "已经存在key: {0}".format(key_str)
-            print "已存在的key的内容为: {0}".format(old_yml_dict[key_str]["response"])
+            print "已存在的key的内容为: {0}".format(old_yml_dict[key_str][YamlTag.Response])
             # 存在该Key，就需要去比较该key的值和response的值
-
+            # 比较 old_yml_dict[YamlTag.Response] 与 response_dict 的值，以old_yml_dict为准
+            flag = YamlHelper.left_cmp_dict(old_yml_dict[key_str][YamlTag.Response], response_dict)
         res_file.close()
-
+        return flag
 
 
     # 排列组合
