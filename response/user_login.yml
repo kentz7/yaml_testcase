@@ -1,0 +1,968 @@
+key_kentz_phone_e10adc3949ba59abbe56e057f20f883e:
+    identify_id: kentz
+    identify_type: phone
+    password: e10adc3949ba59abbe56e057f20f883e
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_13480987546_phone_e10adc3949ba59abbe56e057f20f883e:
+    identify_id: '13480987546'
+    identify_type: phone
+    password: e10adc3949ba59abbe56e057f20f883e
+    response:
+        code: 0
+        data:
+            address: null
+            birthday: null
+            email: null
+            identify_id: '13480987546'
+            identify_type: phone
+            mobile: null
+            nickname: Test_1438855757
+            picture_url: http://res.91wasai.com/assets/avatar/6f9ce360-13fb-11e5-95e4-fbe9c5f2c426_1435583042569.png
+            register_time: 1434440633494
+            role: customer
+            sex: female
+            unid: 1000000000002
+            uuid: 6f9ce360-13fb-11e5-95e4-fbe9c5f2c426
+        domain: user
+        message: Success
+
+key_!@#$ASDF_phone_e10adc3949ba59abbe56e057f20f883e:
+    identify_id: '!@#$ASDF'
+    identify_type: phone
+    password: e10adc3949ba59abbe56e057f20f883e
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_None_phone_e10adc3949ba59abbe56e057f20f883e:
+    identify_id: null
+    identify_type: phone
+    password: e10adc3949ba59abbe56e057f20f883e
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_id'
+
+key__phone_e10adc3949ba59abbe56e057f20f883e:
+    identify_id: ''
+    identify_type: phone
+    password: e10adc3949ba59abbe56e057f20f883e
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_kentz_qq_e10adc3949ba59abbe56e057f20f883e:
+    identify_id: kentz
+    identify_type: qq
+    password: e10adc3949ba59abbe56e057f20f883e
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_13480987546_qq_e10adc3949ba59abbe56e057f20f883e:
+    identify_id: '13480987546'
+    identify_type: qq
+    password: e10adc3949ba59abbe56e057f20f883e
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_!@#$ASDF_qq_e10adc3949ba59abbe56e057f20f883e:
+    identify_id: '!@#$ASDF'
+    identify_type: qq
+    password: e10adc3949ba59abbe56e057f20f883e
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_None_qq_e10adc3949ba59abbe56e057f20f883e:
+    identify_id: null
+    identify_type: qq
+    password: e10adc3949ba59abbe56e057f20f883e
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_id'
+
+key__qq_e10adc3949ba59abbe56e057f20f883e:
+    identify_id: ''
+    identify_type: qq
+    password: e10adc3949ba59abbe56e057f20f883e
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_kentz_weixin_e10adc3949ba59abbe56e057f20f883e:
+    identify_id: kentz
+    identify_type: weixin
+    password: e10adc3949ba59abbe56e057f20f883e
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_13480987546_weixin_e10adc3949ba59abbe56e057f20f883e:
+    identify_id: '13480987546'
+    identify_type: weixin
+    password: e10adc3949ba59abbe56e057f20f883e
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_!@#$ASDF_weixin_e10adc3949ba59abbe56e057f20f883e:
+    identify_id: '!@#$ASDF'
+    identify_type: weixin
+    password: e10adc3949ba59abbe56e057f20f883e
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_None_weixin_e10adc3949ba59abbe56e057f20f883e:
+    identify_id: null
+    identify_type: weixin
+    password: e10adc3949ba59abbe56e057f20f883e
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_id'
+
+key__weixin_e10adc3949ba59abbe56e057f20f883e:
+    identify_id: ''
+    identify_type: weixin
+    password: e10adc3949ba59abbe56e057f20f883e
+    response:
+        code: 0
+        data:
+            address: null
+            birthday: null
+            email: null
+            identify_id: ''
+            identify_type: weixin
+            mobile: null
+            nickname: ''
+            picture_url: ''
+            register_time: 1437932687637
+            role: customer
+            sex: female
+            unid: 1000000002165
+            uuid: 02148450-33be-11e5-a724-c37b4040a649
+        domain: user
+        message: Success
+
+key_kentz_None_e10adc3949ba59abbe56e057f20f883e:
+    identify_id: kentz
+    identify_type: null
+    password: e10adc3949ba59abbe56e057f20f883e
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_type'
+
+key_13480987546_None_e10adc3949ba59abbe56e057f20f883e:
+    identify_id: '13480987546'
+    identify_type: null
+    password: e10adc3949ba59abbe56e057f20f883e
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_type'
+
+key_!@#$ASDF_None_e10adc3949ba59abbe56e057f20f883e:
+    identify_id: '!@#$ASDF'
+    identify_type: null
+    password: e10adc3949ba59abbe56e057f20f883e
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_type'
+
+key_None_None_e10adc3949ba59abbe56e057f20f883e:
+    identify_id: null
+    identify_type: null
+    password: e10adc3949ba59abbe56e057f20f883e
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_id'
+
+key__None_e10adc3949ba59abbe56e057f20f883e:
+    identify_id: ''
+    identify_type: null
+    password: e10adc3949ba59abbe56e057f20f883e
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_type'
+
+key_kentz__e10adc3949ba59abbe56e057f20f883e:
+    identify_id: kentz
+    identify_type: ''
+    password: e10adc3949ba59abbe56e057f20f883e
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_13480987546__e10adc3949ba59abbe56e057f20f883e:
+    identify_id: '13480987546'
+    identify_type: ''
+    password: e10adc3949ba59abbe56e057f20f883e
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_!@#$ASDF__e10adc3949ba59abbe56e057f20f883e:
+    identify_id: '!@#$ASDF'
+    identify_type: ''
+    password: e10adc3949ba59abbe56e057f20f883e
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_None__e10adc3949ba59abbe56e057f20f883e:
+    identify_id: null
+    identify_type: ''
+    password: e10adc3949ba59abbe56e057f20f883e
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_id'
+
+key___e10adc3949ba59abbe56e057f20f883e:
+    identify_id: ''
+    identify_type: ''
+    password: e10adc3949ba59abbe56e057f20f883e
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_kentz_phone_asdfasdfasdfasdfasdfasd:
+    identify_id: kentz
+    identify_type: phone
+    password: asdfasdfasdfasdfasdfasd
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_13480987546_phone_asdfasdfasdfasdfasdfasd:
+    identify_id: '13480987546'
+    identify_type: phone
+    password: asdfasdfasdfasdfasdfasd
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_!@#$ASDF_phone_asdfasdfasdfasdfasdfasd:
+    identify_id: '!@#$ASDF'
+    identify_type: phone
+    password: asdfasdfasdfasdfasdfasd
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_None_phone_asdfasdfasdfasdfasdfasd:
+    identify_id: null
+    identify_type: phone
+    password: asdfasdfasdfasdfasdfasd
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_id'
+
+key__phone_asdfasdfasdfasdfasdfasd:
+    identify_id: ''
+    identify_type: phone
+    password: asdfasdfasdfasdfasdfasd
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_kentz_qq_asdfasdfasdfasdfasdfasd:
+    identify_id: kentz
+    identify_type: qq
+    password: asdfasdfasdfasdfasdfasd
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_13480987546_qq_asdfasdfasdfasdfasdfasd:
+    identify_id: '13480987546'
+    identify_type: qq
+    password: asdfasdfasdfasdfasdfasd
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_!@#$ASDF_qq_asdfasdfasdfasdfasdfasd:
+    identify_id: '!@#$ASDF'
+    identify_type: qq
+    password: asdfasdfasdfasdfasdfasd
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_None_qq_asdfasdfasdfasdfasdfasd:
+    identify_id: null
+    identify_type: qq
+    password: asdfasdfasdfasdfasdfasd
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_id'
+
+key__qq_asdfasdfasdfasdfasdfasd:
+    identify_id: ''
+    identify_type: qq
+    password: asdfasdfasdfasdfasdfasd
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_kentz_weixin_asdfasdfasdfasdfasdfasd:
+    identify_id: kentz
+    identify_type: weixin
+    password: asdfasdfasdfasdfasdfasd
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_13480987546_weixin_asdfasdfasdfasdfasdfasd:
+    identify_id: '13480987546'
+    identify_type: weixin
+    password: asdfasdfasdfasdfasdfasd
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_!@#$ASDF_weixin_asdfasdfasdfasdfasdfasd:
+    identify_id: '!@#$ASDF'
+    identify_type: weixin
+    password: asdfasdfasdfasdfasdfasd
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_None_weixin_asdfasdfasdfasdfasdfasd:
+    identify_id: null
+    identify_type: weixin
+    password: asdfasdfasdfasdfasdfasd
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_id'
+
+key__weixin_asdfasdfasdfasdfasdfasd:
+    identify_id: ''
+    identify_type: weixin
+    password: asdfasdfasdfasdfasdfasd
+    response:
+        code: 0
+        data:
+            address: null
+            birthday: null
+            email: null
+            identify_id: ''
+            identify_type: weixin
+            mobile: null
+            nickname: ''
+            picture_url: ''
+            register_time: 1437932687637
+            role: customer
+            sex: female
+            unid: 1000000002165
+            uuid: 02148450-33be-11e5-a724-c37b4040a649
+        domain: user
+        message: Success
+
+key_kentz_None_asdfasdfasdfasdfasdfasd:
+    identify_id: kentz
+    identify_type: null
+    password: asdfasdfasdfasdfasdfasd
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_type'
+
+key_13480987546_None_asdfasdfasdfasdfasdfasd:
+    identify_id: '13480987546'
+    identify_type: null
+    password: asdfasdfasdfasdfasdfasd
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_type'
+
+key_!@#$ASDF_None_asdfasdfasdfasdfasdfasd:
+    identify_id: '!@#$ASDF'
+    identify_type: null
+    password: asdfasdfasdfasdfasdfasd
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_type'
+
+key_None_None_asdfasdfasdfasdfasdfasd:
+    identify_id: null
+    identify_type: null
+    password: asdfasdfasdfasdfasdfasd
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_id'
+
+key__None_asdfasdfasdfasdfasdfasd:
+    identify_id: ''
+    identify_type: null
+    password: asdfasdfasdfasdfasdfasd
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_type'
+
+key_kentz__asdfasdfasdfasdfasdfasd:
+    identify_id: kentz
+    identify_type: ''
+    password: asdfasdfasdfasdfasdfasd
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_13480987546__asdfasdfasdfasdfasdfasd:
+    identify_id: '13480987546'
+    identify_type: ''
+    password: asdfasdfasdfasdfasdfasd
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_!@#$ASDF__asdfasdfasdfasdfasdfasd:
+    identify_id: '!@#$ASDF'
+    identify_type: ''
+    password: asdfasdfasdfasdfasdfasd
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_None__asdfasdfasdfasdfasdfasd:
+    identify_id: null
+    identify_type: ''
+    password: asdfasdfasdfasdfasdfasd
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_id'
+
+key___asdfasdfasdfasdfasdfasd:
+    identify_id: ''
+    identify_type: ''
+    password: asdfasdfasdfasdfasdfasd
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_kentz_phone_None:
+    identify_id: kentz
+    identify_type: phone
+    password: null
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: password'
+
+key_13480987546_phone_None:
+    identify_id: '13480987546'
+    identify_type: phone
+    password: null
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: password'
+
+key_!@#$ASDF_phone_None:
+    identify_id: '!@#$ASDF'
+    identify_type: phone
+    password: null
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: password'
+
+key_None_phone_None:
+    identify_id: null
+    identify_type: phone
+    password: null
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_id'
+
+key__phone_None:
+    identify_id: ''
+    identify_type: phone
+    password: null
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: password'
+
+key_kentz_qq_None:
+    identify_id: kentz
+    identify_type: qq
+    password: null
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_13480987546_qq_None:
+    identify_id: '13480987546'
+    identify_type: qq
+    password: null
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_!@#$ASDF_qq_None:
+    identify_id: '!@#$ASDF'
+    identify_type: qq
+    password: null
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_None_qq_None:
+    identify_id: null
+    identify_type: qq
+    password: null
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_id'
+
+key__qq_None:
+    identify_id: ''
+    identify_type: qq
+    password: null
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_kentz_weixin_None:
+    identify_id: kentz
+    identify_type: weixin
+    password: null
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_13480987546_weixin_None:
+    identify_id: '13480987546'
+    identify_type: weixin
+    password: null
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_!@#$ASDF_weixin_None:
+    identify_id: '!@#$ASDF'
+    identify_type: weixin
+    password: null
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_None_weixin_None:
+    identify_id: null
+    identify_type: weixin
+    password: null
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_id'
+
+key__weixin_None:
+    identify_id: ''
+    identify_type: weixin
+    password: null
+    response:
+        code: 0
+        data:
+            address: null
+            birthday: null
+            email: null
+            identify_id: ''
+            identify_type: weixin
+            mobile: null
+            nickname: ''
+            picture_url: ''
+            register_time: 1437932687637
+            role: customer
+            sex: female
+            unid: 1000000002165
+            uuid: 02148450-33be-11e5-a724-c37b4040a649
+        domain: user
+        message: Success
+
+key_kentz_None_None:
+    identify_id: kentz
+    identify_type: null
+    password: null
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_type'
+
+key_13480987546_None_None:
+    identify_id: '13480987546'
+    identify_type: null
+    password: null
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_type'
+
+key_!@#$ASDF_None_None:
+    identify_id: '!@#$ASDF'
+    identify_type: null
+    password: null
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_type'
+
+key_None_None_None:
+    identify_id: null
+    identify_type: null
+    password: null
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_id'
+
+key__None_None:
+    identify_id: ''
+    identify_type: null
+    password: null
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_type'
+
+key_kentz__None:
+    identify_id: kentz
+    identify_type: ''
+    password: null
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_13480987546__None:
+    identify_id: '13480987546'
+    identify_type: ''
+    password: null
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_!@#$ASDF__None:
+    identify_id: '!@#$ASDF'
+    identify_type: ''
+    password: null
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_None__None:
+    identify_id: null
+    identify_type: ''
+    password: null
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_id'
+
+key___None:
+    identify_id: ''
+    identify_type: ''
+    password: null
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_kentz_phone_:
+    identify_id: kentz
+    identify_type: phone
+    password: ''
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_13480987546_phone_:
+    identify_id: '13480987546'
+    identify_type: phone
+    password: ''
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_!@#$ASDF_phone_:
+    identify_id: '!@#$ASDF'
+    identify_type: phone
+    password: ''
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_None_phone_:
+    identify_id: null
+    identify_type: phone
+    password: ''
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_id'
+
+key__phone_:
+    identify_id: ''
+    identify_type: phone
+    password: ''
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_kentz_qq_:
+    identify_id: kentz
+    identify_type: qq
+    password: ''
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_13480987546_qq_:
+    identify_id: '13480987546'
+    identify_type: qq
+    password: ''
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_!@#$ASDF_qq_:
+    identify_id: '!@#$ASDF'
+    identify_type: qq
+    password: ''
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_None_qq_:
+    identify_id: null
+    identify_type: qq
+    password: ''
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_id'
+
+key__qq_:
+    identify_id: ''
+    identify_type: qq
+    password: ''
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_kentz_weixin_:
+    identify_id: kentz
+    identify_type: weixin
+    password: ''
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_13480987546_weixin_:
+    identify_id: '13480987546'
+    identify_type: weixin
+    password: ''
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_!@#$ASDF_weixin_:
+    identify_id: '!@#$ASDF'
+    identify_type: weixin
+    password: ''
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_None_weixin_:
+    identify_id: null
+    identify_type: weixin
+    password: ''
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_id'
+
+key__weixin_:
+    identify_id: ''
+    identify_type: weixin
+    password: ''
+    response:
+        code: 0
+        data:
+            address: null
+            birthday: null
+            email: null
+            identify_id: ''
+            identify_type: weixin
+            mobile: null
+            nickname: ''
+            picture_url: ''
+            register_time: 1437932687637
+            role: customer
+            sex: female
+            unid: 1000000002165
+            uuid: 02148450-33be-11e5-a724-c37b4040a649
+        domain: user
+        message: Success
+
+key_kentz_None_:
+    identify_id: kentz
+    identify_type: null
+    password: ''
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_type'
+
+key_13480987546_None_:
+    identify_id: '13480987546'
+    identify_type: null
+    password: ''
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_type'
+
+key_!@#$ASDF_None_:
+    identify_id: '!@#$ASDF'
+    identify_type: null
+    password: ''
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_type'
+
+key_None_None_:
+    identify_id: null
+    identify_type: null
+    password: ''
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_id'
+
+key__None_:
+    identify_id: ''
+    identify_type: null
+    password: ''
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_type'
+key_kentz__:
+    identify_id: kentz
+    identify_type: ''
+    password: ''
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_13480987546__:
+    identify_id: '13480987546'
+    identify_type: ''
+    password: ''
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_!@#$ASDF__:
+    identify_id: '!@#$ASDF'
+    identify_type: ''
+    password: ''
+    response:
+        code: 10005
+        domain: user
+        message: login failed
+
+key_None__:
+    identify_id: null
+    identify_type: ''
+    password: ''
+    response:
+        code: 10001
+        domain: user login
+        message: 'Required parameter missing: identify_id'
+
+key___:
+    identify_id: ''
+    identify_type: ''
+    password: ''
+    response:
+        code: 10005
+        domain: user
+        message: login failed

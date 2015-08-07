@@ -7,6 +7,8 @@ from YamlVariable  import YamlVariable
 import YamlDefault
 import YamlHelper
 from YamlTag import YamlTag
+import os
+import json
 
 class YamlInterface():
     # 构造函数
@@ -16,6 +18,12 @@ class YamlInterface():
         # if api.has_key(YamlTag.Body) and api.has_key(YamlTag.Procedure):
         #     print "不允许同时配置Body和Procedure标签"
         #     return None
+
+        # Yml 文件名及输出结果的路径
+        file_name = os.path.split(yml_file_path)[1]
+        root_dir = YamlHelper.same_prefix(os.path.abspath(yml_file_path), os.getcwd())
+        self.interface_name = file_name[0:file_name.index(".")]
+        self.response_file = "{0}/response/{1}.yml".format(root_dir, self.interface_name)
 
         # Yaml请求
         self.request = YamlHttpRequest(YamlHelper.http_option(api, YamlTag.Url),
@@ -52,14 +60,57 @@ class YamlInterface():
     # 发送请求
     def execute(self):
         print "开始执行接口用例"
+        # 遍历所有数组合发送所有的HTTP请求
         for data_item in self.data_combination:
-            self.request.invoke(data_item)
+            response = self.request.invoke(data_item)
+            self.save_check_response(data_item, response)
+
+
+    # 保存请求记录
+    def save_check_response(self, data_item, response):
+        # 先判断文件夹和文件是否存在
+        if not os.path.exists(self.response_file):
+            if not os.path.exists(os.path.split(self.response_file)[0]):
+                os.makedirs(os.path.split(self.response_file)[0])
+            res_file = open(self.response_file, "w")
+            res_file.close()
+
+        # 读写文件
+        # 如果已经存在该配置了，则忽略
+        old_yml_dict = yaml.load(open(self.response_file, "r"))
+
+        res_file = open(self.response_file, "a")
+
+
+        # 获取key值，由于dict具有无序性，再创建key时需要以key做一次排序
+        key_str = "key_"
+        # iteritems() 返回一个字典键值对的元组集合
+        sorted_data_item = sorted(data_item.iteritems(), key=lambda k:k[0], reverse=False)
+        for item in sorted_data_item:
+            key_str = key_str + str(item[1]) + "_"
+        key_str = key_str[0:len(key_str)-1]
+
+        res_dict = {}
+        # 先要判断key是否存在，如果存在则不做任何处理，不存在则插入
+        if (old_yml_dict is None) or (not old_yml_dict.has_key(key_str)):
+            print "插入新的key: {0}".format(key_str)
+            res_dict[key_str] = data_item
+            res_dict[key_str]["response"] = yaml.load(response.text)
+            yaml.dump(res_dict, res_file, default_flow_style=False, indent=4)
+            res_file.write("\n")
+        else:
+            print "已经存在key: {0}".format(key_str)
+            print "已存在的key的内容为: {0}".format(old_yml_dict[key_str]["response"])
+            # 存在该Key，就需要去比较该key的值和response的值
+
+        res_file.close()
+
 
 
     # 排列组合
     def data_combine(self):
         # 将Yaml提供的字典类型转换成列表类型
-        # 返回类型如: ["name", ["value,", "value2", "value3"], ["password", ["value1", "value2", "value3"]]]
+        # yamlLst格式如: ["name", ["value,", "value2", "value3"], ["password", ["value1", "value2", "value3"]]]
         yamlLst = []
         for key in self.body:
             if self.body[key].has_key(YamlTag.Values):
@@ -73,14 +124,13 @@ class YamlInterface():
 
 
         lst = [self.lst_dict_lst(item) for item in yamlLst]
-        res = lst[0]
+        dc = lst[0]
         if len(lst) == 1:
-            return res
+            return dc
         else:
             for i in range(1, len(lst)):
-                res = self.assemble_dict_lst(res, lst[i])
-        print res
-        return res
+                dc = self.assemble_dict_lst(dc, lst[i])
+        return dc
 
 
     # lst的格式: ["name", ["value,", "value2", "value3"]]
@@ -92,7 +142,7 @@ class YamlInterface():
 
 
     # 将 [{"name":"value1"}, {"name":"value2"}, {"name":"value3"}]
-    # 与 [{"password":"pass1"}, "password":"pass2"]
+    # 与 [{"password":"pass1"}, {"password":"pass2"}]
     # 两个列表进行排列组合成一个新的列表
     def assemble_dict_lst(self, src_lst, dst_lst):
         assemble_lst = []
@@ -104,4 +154,6 @@ class YamlInterface():
 
 if __name__ == "__main__":
     interface = YamlInterface("interface/user_login.yml")
+    # for item in interface.data_combination:
+    #     print item
     interface.execute()
