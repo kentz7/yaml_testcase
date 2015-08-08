@@ -1,4 +1,8 @@
 interface:
+    global:
+        - $param1 = ${interface1 param1 param2}
+        - $param2 = ${interface2 param1 param2}
+
     url: http://api.91wasai.com/v2
 
     # auth:

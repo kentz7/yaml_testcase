@@ -3,7 +3,7 @@ import yaml
 from YamlStep import  YamlStep
 from YamlHttpRequest import YamlHttpRequest
 from YamlHttpResponse import YamlHttpResponse
-from YamlVariable  import YamlVariable
+from YamlVariables  import YamlVariables
 import YamlDefault
 import YamlHelper
 from YamlTag import YamlTag
@@ -19,11 +19,14 @@ class YamlInterface():
         #     print "不允许同时配置Body和Procedure标签"
         #     return None
 
-        # Yml 文件名及输出结果的路径
+        # Yaml 文件名及输出结果的路径
         file_name = os.path.split(yml_file_path)[1]
         root_dir = YamlHelper.same_prefix(os.path.abspath(yml_file_path), os.getcwd())
         self.interface_name = file_name[0:file_name.index(".")]
         self.response_file = "{0}/response/{1}.yml".format(root_dir, self.interface_name)
+
+        # Yaml Global Variables
+        self.variables = YamlVariables(api[YamlTag.Global])
 
         # Yaml请求
         self.request = YamlHttpRequest(YamlHelper.http_option(api, YamlTag.Url),
@@ -42,9 +45,6 @@ class YamlInterface():
 
         # 后置操作
         self.postcondition = YamlStep()
-
-        # 全局变量
-        self.variables = YamlVariable()
 
         # 参数数据组合
         self.data_combination = self.data_combine()
@@ -157,4 +157,4 @@ if __name__ == "__main__":
     interface = YamlInterface("interface/user_login.yml")
     # for item in interface.data_combination:
     #     print item
-    interface.execute()
+    # interface.execute()
