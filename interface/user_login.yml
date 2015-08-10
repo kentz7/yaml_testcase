@@ -6,7 +6,7 @@ interface:
         - param2 = ${A}/${interface2 param1}
         - param3 = ${param2}/asjdlkfjalk
 
-    url: http://api.91wasai.com/v2/${A}
+    url: http://api.91wasai.com/v2
 
     # auth:
     #       Username: "13480987546"
