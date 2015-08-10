@@ -25,26 +25,26 @@ class YamlInterface():
         self.interface_name = file_name[0:file_name.index(".")]
         self.response_file = "{0}/response/{1}.yml".format(root_dir, self.interface_name)
 
-        # Yaml Global Variables
+        # Yaml配置文件定义的全局变量，对应globa标签下的变量
         self.variables = YamlVariables(api[YamlTag.Global])
 
-        # Yaml请求
-        self.request = YamlHttpRequest(YamlHelper.http_option(api, YamlTag.Url),
+        # Yaml请求实例
+        self.request = YamlHttpRequest(YamlHelper.var_expr(self.variables.variables, YamlHelper.http_option(api, YamlTag.Url)),
                                        YamlHelper.http_option(api, YamlTag.Auth),
                                        YamlHelper.http_option(api, YamlTag.Header),
-                                       YamlHelper.http_option(api, YamlTag.Method),
-                                       YamlHelper.http_option(api, YamlTag.Action))
-        # 请求的主体
-        self.body = api[YamlTag.Body]
-
+                                       YamlHelper.var_expr(self.variables.variables, YamlHelper.http_option(api, YamlTag.Method)),
+                                       YamlHelper.var_expr(self.variables.variables, YamlHelper.http_option(api, YamlTag.Action)))
         # 前置操作
-        self.precondition = YamlStep()
+        self.precondition = YamlStep(api[YamlTag.Precondition])
+
+        # 请求的主体，用来进行请求参数的组合
+        self.body = api[YamlTag.Body]
 
         # 执行过程 -- 为避免与body重复，可考虑不要该标签
         # self.procedure = YamlStep()
 
         # 后置操作
-        self.postcondition = YamlStep()
+        #self.postcondition = YamlStep()
 
         # 参数数据组合
         self.data_combination = self.data_combine()
@@ -59,11 +59,19 @@ class YamlInterface():
 
     # 发送请求
     def execute(self):
+        # 标签执行顺序：
+        # 1.global - 构造函数中定义
+        # 2.action/header/method/auth - 构造函数中定义
+        # 3.precondition
+        # 4.body/procedure
+        # 5.postcondition
         print "开始执行接口用例"
         # 遍历所有数组合发送所有的HTTP请求
         for data_item in self.data_combination:
+            # precondition execute
             response = self.request.invoke(data_item)
             self.save_check_response(data_item, response)
+            # postcondition execute
 
 
     # 保存请求记录
