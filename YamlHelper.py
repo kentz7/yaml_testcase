@@ -95,3 +95,10 @@ def var_expr(variables, expr_line):
     # 3. 没有任何引用则直接赋值
     print "{0} 全局变量/预定义函数调用后的表达式: {1}".format(expr_line, result)
     return result
+
+
+# 只支持一维的字典（不支持复合字典）
+def dict_var_expr(variables, dct):
+    for dct_key in dct:
+        dct[dct_key] = var_expr(variables, dct[dct_key])
+    return dct

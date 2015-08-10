@@ -1,17 +1,19 @@
 interface:
     global: # 必须设置成赋值
+        - Username = kentz
+        - Password = 123456
+        - Version = v2
         - A = TEST AAAAAA
-        - B = ${A}
+        - B = ${A}/password
         - param1 = ${interface1 param1}
         - param2 = ${A}/${interface2 param1}
         - param3 = ${param2}/asjdlkfjalk
-        - Version = v2
 
     url: http://api.91wasai.com/${Version}
 
-    # auth:
-    #       Username: "13480987546"
-    #       Password: "123456"
+    auth:
+          username: ${Username}
+          password: ${Password}
 
     action: /user/login
     method: POST
@@ -21,7 +23,7 @@ interface:
         #Content-Type: application/json
         sessionid: "-10-3824-11-110-105387-44-84-13030413851"
 
-    precondition: # 
+    precondition: #
         - interface1 param1
         - interface2 param2
 

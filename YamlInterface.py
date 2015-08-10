@@ -30,8 +30,8 @@ class YamlInterface():
 
         # Yaml请求实例
         self.request = YamlHttpRequest(YamlHelper.var_expr(self.variables.variables, YamlHelper.http_option(api, YamlTag.Url)),
-                                       YamlHelper.http_option(api, YamlTag.Auth),
-                                       YamlHelper.http_option(api, YamlTag.Header),
+                                       YamlHelper.dict_var_expr(self.variables.variables, YamlHelper.http_option(api, YamlTag.Auth)),
+                                       YamlHelper.dict_var_expr(self.variables.variables, YamlHelper.http_option(api, YamlTag.Header)),
                                        YamlHelper.var_expr(self.variables.variables, YamlHelper.http_option(api, YamlTag.Method)),
                                        YamlHelper.var_expr(self.variables.variables, YamlHelper.http_option(api, YamlTag.Action)))
         # 前置操作
