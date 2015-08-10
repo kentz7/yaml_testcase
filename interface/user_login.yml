@@ -1,9 +1,12 @@
 interface:
-    global:
-        - $param1 = ${interface1 param1 param2}
-        - $param2 = ${interface2 param1 param2}
+    global: # 必须设置成赋值
+        - A = TEST AAAAAA
+        - B = ${A}
+        - param1 = ${interface1 param1}
+        - param2 = ${A}/${interface2 param1}
+        - param3 = ${param2}/asjdlkfjalk
 
-    url: http://api.91wasai.com/v2
+    url: http://api.91wasai.com/v2/${A}
 
     # auth:
     #       Username: "13480987546"
