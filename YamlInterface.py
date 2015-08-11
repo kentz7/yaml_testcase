@@ -34,6 +34,11 @@ class YamlInterface():
                                        YamlHelper.dict_var_expr(self.variables.variables, YamlHelper.http_option(api, YamlTag.Header)),
                                        YamlHelper.var_expr(self.variables.variables, YamlHelper.http_option(api, YamlTag.Method)),
                                        YamlHelper.var_expr(self.variables.variables, YamlHelper.http_option(api, YamlTag.Action)))
+
+        print "全局变量列表: "
+        for key in self.variables.variables:
+            print "key = {0} \t\t value = {1}".format(key, self.variables.variables[key])
+
         # 前置操作
         self.precondition = YamlStep(api[YamlTag.Precondition])
 
@@ -44,7 +49,7 @@ class YamlInterface():
         # self.procedure = YamlStep()
 
         # 后置操作
-        #self.postcondition = YamlStep()
+        self.postcondition = YamlStep(api[YamlTag.Postcondition])
 
         # 参数数据组合
         self.data_combination = self.data_combine()
@@ -69,9 +74,16 @@ class YamlInterface():
         # 遍历所有数组合发送所有的HTTP请求
         for data_item in self.data_combination:
             # precondition execute
+            print "开始执行前置操作"
+            self.precondition.execute(self.variables.variables)
+
+            print "开始执行过程方法"
             response = self.request.invoke(data_item)
             self.save_check_response(data_item, response)
+
+            print "开始执行后置操作"
             # postcondition execute
+            self.postcondition.execute(self.variables.variables)
 
 
     # 保存请求记录
@@ -165,4 +177,4 @@ if __name__ == "__main__":
     interface = YamlInterface("interface/user_login.yml")
     # for item in interface.data_combination:
     #     print item
-    # interface.execute()
+    interface.execute()

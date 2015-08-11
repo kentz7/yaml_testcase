@@ -5,10 +5,12 @@ def interface():
 
 
 def interface1(param):
+    print "interface 11111"
     return "1234567890"
 
 
 def interface2(param):
+    print "interface 22222"
     return "0123456789"
 
 

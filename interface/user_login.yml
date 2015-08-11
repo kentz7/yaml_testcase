@@ -23,9 +23,11 @@ interface:
         #Content-Type: application/json
         sessionid: "-10-3824-11-110-105387-44-84-13030413851"
 
-    precondition: #
-        - interface1 param1
-        - interface2 param2
+    precondition: # 不要使用赋值形式，直接使用表达式
+        - ${interface1 param1}
+
+    postcondition: # 不要使用赋值形式，直接使用表达式
+        - ${interface2 param2}
 
     # Body就是API对应的参数
     body:
