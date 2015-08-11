@@ -23,6 +23,19 @@ def http_option(dct, key):
         return YamlDefault.HTTP_DEFAULT[key]
 
 
+# 根据key来获取值
+def yaml_tag_value(dct, key):
+    # 先判断dct有没有该key
+    if dct.has_key(key):
+        return dct[key]
+    # 如果dct没有，再看default_values中是否有该key
+    elif YamlDefault.DEFAULT_VALUES.has_key(key):
+        return YamlDefault.DEFAULT_VALUES[key]
+    # 都没有就返回None
+    else:
+        return None
+
+
 # 获取两个字符串相同的前缀
 def same_prefix(pre_string, post_string):
     min_len = len(pre_string) if len(pre_string) < len(post_string) else len(post_string)

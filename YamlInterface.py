@@ -2,7 +2,6 @@
 import yaml
 from YamlStep import  YamlStep
 from YamlHttpRequest import YamlHttpRequest
-from YamlHttpResponse import YamlHttpResponse
 from YamlVariables  import YamlVariables
 import YamlDefault
 import YamlHelper
@@ -29,27 +28,27 @@ class YamlInterface():
         self.variables = YamlVariables(api[YamlTag.Global])
 
         # Yaml请求实例
-        self.request = YamlHttpRequest(YamlHelper.var_expr(self.variables.variables, YamlHelper.http_option(api, YamlTag.Url)),
-                                       YamlHelper.dict_var_expr(self.variables.variables, YamlHelper.http_option(api, YamlTag.Auth)),
-                                       YamlHelper.dict_var_expr(self.variables.variables, YamlHelper.http_option(api, YamlTag.Header)),
-                                       YamlHelper.var_expr(self.variables.variables, YamlHelper.http_option(api, YamlTag.Method)),
-                                       YamlHelper.var_expr(self.variables.variables, YamlHelper.http_option(api, YamlTag.Action)))
+        self.request = YamlHttpRequest(YamlHelper.var_expr(self.variables.variables, YamlHelper.yaml_tag_value(api, YamlTag.Url)),
+                                       YamlHelper.dict_var_expr(self.variables.variables, YamlHelper.yaml_tag_value(api, YamlTag.Auth)),
+                                       YamlHelper.dict_var_expr(self.variables.variables, YamlHelper.yaml_tag_value(api, YamlTag.Header)),
+                                       YamlHelper.var_expr(self.variables.variables, YamlHelper.yaml_tag_value(api, YamlTag.Method)),
+                                       YamlHelper.var_expr(self.variables.variables, YamlHelper.yaml_tag_value(api, YamlTag.Action)))
 
         print "全局变量列表: "
         for key in self.variables.variables:
             print "key = {0} \t\t value = {1}".format(key, self.variables.variables[key])
 
         # 前置操作
-        self.precondition = YamlStep(api[YamlTag.Precondition])
+        self.precondition = YamlStep(YamlHelper.yaml_tag_value(api, YamlTag.Precondition))
 
         # 请求的主体，用来进行请求参数的组合
-        self.body = api[YamlTag.Body]
+        self.body = YamlHelper.yaml_tag_value(api, YamlTag.Body)
 
         # 执行过程 -- 为避免与body重复，可考虑不要该标签
         # self.procedure = YamlStep()
 
         # 后置操作
-        self.postcondition = YamlStep(api[YamlTag.Postcondition])
+        self.postcondition = YamlStep(YamlHelper.yaml_tag_value(api, YamlTag.Postcondition))
 
         # 参数数据组合
         self.data_combination = self.data_combine()
@@ -73,7 +72,7 @@ class YamlInterface():
         print "开始执行接口用例"
         # 遍历所有数组合发送所有的HTTP请求
         for data_item in self.data_combination:
-            if self.precondition:
+            if self.precondition.expr_lines:
                 print "开始执行前置操作"
                 self.precondition.execute(self.variables.variables)
 
@@ -81,7 +80,7 @@ class YamlInterface():
             response = self.request.invoke(data_item)
             self.save_check_response(data_item, response)
 
-            if self.postcondition:
+            if self.postcondition.expr_lines:
                 print "开始执行后置操作"
                 self.postcondition.execute(self.variables.variables)
 

@@ -11,6 +11,16 @@ HTTP_DEFAULT = {
     }
 }
 
+DEFAULT_VALUES = {
+    "auth": {},
+    "url": "http://api.91wasai.com/v2",
+    "method": "POST",
+    "action": "/",
+    "header": {
+        "Content-Type": "application/json"
+    }
+}
+
 # INT类型的默认值
 VARIABLE_INT = [0, 1, 99]
 

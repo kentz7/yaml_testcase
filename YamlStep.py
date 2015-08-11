@@ -6,7 +6,6 @@ class YamlStep():
     def __init__(self, expr_lines):
         self.expr_lines = expr_lines
 
-
     # 处理变量
     def add_var(self, variables, variable_line):
         variable_name = variable_line.split("=")[0].strip()
@@ -15,10 +14,10 @@ class YamlStep():
 
     # 执行操作
     def execute(self, variables):
-        for expr_line in self.expr_lines:
-            # 如果有变量名，则保存 => 就是有 = 符号
-            if "=" not in expr_line:
-                YamlHelper.var_expr(variables, expr_line.strip())
-            else:
-                # 如果没有变量名，则只执行
-                self.add_var(variables, expr_line)
+        # 如果没有设置前置或后置则无需执行
+        if self.expr_lines:
+            for expr_line in self.expr_lines:
+                if "=" not in expr_line:
+                    YamlHelper.var_expr(variables, expr_line.strip())
+                else:
+                    self.add_var(variables, expr_line)
