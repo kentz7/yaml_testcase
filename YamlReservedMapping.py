@@ -1,6 +1,11 @@
 #encoding: utf-8
 
-def interface():
+def interface(yaml_file_name, **args):
+    # ${interface yaml_file_name param1 param2 param3}
+    # 先获取到该yaml文件
+
+    # 直接调用single_request方法
+    
     return "1234567890"
 
 

@@ -1,16 +1,6 @@
 #encoding:utf-8
 
-# HTTP 默认值
-HTTP_DEFAULT = {
-    "auth": {},
-    "url": "http://api.91wasai.com/v2",
-    "method": "POST",
-    "action": "/",
-    "header": {
-        "Content-Type": "application/json"
-    }
-}
-
+# 默认值
 DEFAULT_VALUES = {
     "auth": {},
     "url": "http://api.91wasai.com/v2",

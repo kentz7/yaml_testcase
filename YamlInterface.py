@@ -172,6 +172,11 @@ class YamlInterface():
         return assemble_lst
 
 
+    # 单个请求执行
+    def single_request(self, **args):
+        pass
+
+
 if __name__ == "__main__":
     interface = YamlInterface("interface/user_login.yml")
     # for item in interface.data_combination:

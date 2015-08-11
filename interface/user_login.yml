@@ -11,9 +11,9 @@ interface:
 
     url: http://api.91wasai.com/${Version}
 
-    auth:
-          username: ${Username}
-          password: ${Password}
+    # auth:
+    #       username: ${Username}
+    #       password: ${Password}
 
     action: /user/login
     method: POST
