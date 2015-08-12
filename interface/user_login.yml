@@ -1,9 +1,19 @@
 interface:
-    url: http://api.91wasai.com/v2
+    global: # 必须设置成赋值
+        - Username = kentz
+        - Password = 123456
+        - Version = v2
+        - A = TEST AAAAAA
+        - B = ${A}/password
+        - param1 = ${interface1 param1}
+        - param2 = ${A}/${interface2 param1}
+        - param3 = ${param2}/asjdlkfjalk
+
+    url: http://api.91wasai.com/${Version}
 
     # auth:
-    #       Username: "13480987546"
-    #       Password: "123456"
+    #       username: ${Username}
+    #       password: ${Password}
 
     action: /user/login
     method: POST
@@ -12,6 +22,12 @@ interface:
     header:
         #Content-Type: application/json
         sessionid: "-10-3824-11-110-105387-44-84-13030413851"
+
+    precondition: # 不要使用赋值形式，直接使用表达式
+        - ${interface1 param1}
+    #
+    # postcondition: # 不要使用赋值形式，直接使用表达式
+    #     - ${interface2 param2}
 
     # Body就是API对应的参数
     body:

@@ -2,8 +2,7 @@
 import yaml
 from YamlStep import  YamlStep
 from YamlHttpRequest import YamlHttpRequest
-from YamlHttpResponse import YamlHttpResponse
-from YamlVariable  import YamlVariable
+from YamlVariables  import YamlVariables
 import YamlDefault
 import YamlHelper
 from YamlTag import YamlTag
@@ -19,32 +18,37 @@ class YamlInterface():
         #     print "不允许同时配置Body和Procedure标签"
         #     return None
 
-        # Yml 文件名及输出结果的路径
+        # Yaml 文件名及输出结果的路径
         file_name = os.path.split(yml_file_path)[1]
         root_dir = YamlHelper.same_prefix(os.path.abspath(yml_file_path), os.getcwd())
         self.interface_name = file_name[0:file_name.index(".")]
         self.response_file = "{0}/response/{1}.yml".format(root_dir, self.interface_name)
 
-        # Yaml请求
-        self.request = YamlHttpRequest(YamlHelper.http_option(api, YamlTag.Url),
-                                       YamlHelper.http_option(api, YamlTag.Auth),
-                                       YamlHelper.http_option(api, YamlTag.Header),
-                                       YamlHelper.http_option(api, YamlTag.Method),
-                                       YamlHelper.http_option(api, YamlTag.Action))
-        # 请求的主体
-        self.body = api[YamlTag.Body]
+        # Yaml配置文件定义的全局变量，对应globa标签下的变量
+        self.variables = YamlVariables(api[YamlTag.Global])
+
+        # Yaml请求实例
+        self.request = YamlHttpRequest(YamlHelper.var_expr(self.variables.variables, YamlHelper.yaml_tag_value(api, YamlTag.Url)),
+                                       YamlHelper.dict_var_expr(self.variables.variables, YamlHelper.yaml_tag_value(api, YamlTag.Auth)),
+                                       YamlHelper.dict_var_expr(self.variables.variables, YamlHelper.yaml_tag_value(api, YamlTag.Header)),
+                                       YamlHelper.var_expr(self.variables.variables, YamlHelper.yaml_tag_value(api, YamlTag.Method)),
+                                       YamlHelper.var_expr(self.variables.variables, YamlHelper.yaml_tag_value(api, YamlTag.Action)))
+
+        print "全局变量列表: "
+        for key in self.variables.variables:
+            print "key = {0} \t\t value = {1}".format(key, self.variables.variables[key])
 
         # 前置操作
-        self.precondition = YamlStep()
+        self.precondition = YamlStep(YamlHelper.yaml_tag_value(api, YamlTag.Precondition))
+
+        # 请求的主体，用来进行请求参数的组合
+        self.body = YamlHelper.yaml_tag_value(api, YamlTag.Body)
 
         # 执行过程 -- 为避免与body重复，可考虑不要该标签
         # self.procedure = YamlStep()
 
         # 后置操作
-        self.postcondition = YamlStep()
-
-        # 全局变量
-        self.variables = YamlVariable()
+        self.postcondition = YamlStep(YamlHelper.yaml_tag_value(api, YamlTag.Postcondition))
 
         # 参数数据组合
         self.data_combination = self.data_combine()
@@ -59,11 +63,26 @@ class YamlInterface():
 
     # 发送请求
     def execute(self):
+        # 标签执行顺序：
+        # 1.global - 构造函数中定义
+        # 2.action/header/method/auth - 构造函数中定义
+        # 3.precondition
+        # 4.body/procedure
+        # 5.postcondition
         print "开始执行接口用例"
         # 遍历所有数组合发送所有的HTTP请求
         for data_item in self.data_combination:
+            if self.precondition.expr_lines:
+                print "开始执行前置操作"
+                self.precondition.execute(self.variables.variables)
+
+            print "开始执行过程方法"
             response = self.request.invoke(data_item)
             self.save_check_response(data_item, response)
+
+            if self.postcondition.expr_lines:
+                print "开始执行后置操作"
+                self.postcondition.execute(self.variables.variables)
 
 
     # 保存请求记录
@@ -151,6 +170,11 @@ class YamlInterface():
             for dst_dist in dst_lst:
                 assemble_lst.append(dict(src_dict, **dst_dist))
         return assemble_lst
+
+
+    # 单个请求执行
+    def single_request(self, **args):
+        pass
 
 
 if __name__ == "__main__":

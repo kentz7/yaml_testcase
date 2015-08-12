@@ -1,15 +1,47 @@
 #encoding:utf-8
 import yaml
+import re
 
-yml_file_path = "response/user_login.yml"
-yml_file = open(yml_file_path)
-yml_dict = yaml.load(yml_file)
-#print yml_dict["key_e10adc3949ba59abbe56e057f20f883e_phone_None"]
-#print yml_dict["key_e10adc3949ba59abbe56e057f20f883e_phone_!@#$ASDF"]
+# yml_file_path = "response/user_login.yml"
+# yml_file = open(yml_file_path)
+# yml_dict = yaml.load(yml_file)
+# print yml_dict["key_e10adc3949ba59abbe56e057f20f883e_phone_None"]
+# print yml_dict["key_e10adc3949ba59abbe56e057f20f883e_phone_!@#$ASDF"]
 
 
+# params = ${param1}
+# params = ${param1}${param2}
+# params = ${param1}${interface aaa bbb}
+# test_str = "params = ${param1}/${interface aaa bbb ccc}${interface 111 222 333}"
+
+
+# reg_str = r"\$\{(\w+)\}"
+# reg_str = "\$\{(((\w+\s+)+)(\w+))\}"
+
+# pattern = re.compile(reg_str)
+# match = pattern.search(test_str)
 #
-dct = {'domain': 'user', 'code': 0, 'data': {'uuid': '02148450-33be-11e5-a724-c37b4040a649', 'mobile': None, 'picture_url': '', 'register_time': 1437932687637, 'identify_type': 'weixin', 'sex': 'female', 'birthday': None, 'role': 'customer', 'unid': 1000000002165, 'address': None, 'nickname': '', 'email': None, 'identify_id': ''}, 'message': 'Success'}
+# if match:
+#     print match.group()
 
-for item in  dct.iteritems():
-    print item
+# find = re.findall(reg_str, test_str)
+# print find
+
+
+def funcA():
+    print "Func A"
+
+def funcB():
+    print "Func B"
+
+def funcC():
+    print "Func C"
+
+
+
+func_dict = {
+    "funcA": funcA
+}
+
+
+func_dict["funcA"]()
