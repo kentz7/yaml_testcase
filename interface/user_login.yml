@@ -24,7 +24,7 @@ interface:
         sessionid: "-10-3824-11-110-105387-44-84-13030413851"
 
     precondition: # 不要使用赋值形式，直接使用表达式
-        - ${interface1 param1}
+        - /user/login/${single_execute user_login kentz phone e10adc3949ba59abbe56e057f20f883e}
     #
     # postcondition: # 不要使用赋值形式，直接使用表达式
     #     - ${interface2 param2}

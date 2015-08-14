@@ -69,19 +69,19 @@ class YamlInterface():
         # 3.precondition
         # 4.body/procedure
         # 5.postcondition
-        print "开始执行接口用例"
+        print u"开始执行接口用例"
         # 遍历所有数组合发送所有的HTTP请求
         for data_item in self.data_combination:
             if self.precondition.expr_lines:
-                print "开始执行前置操作"
+                print u"开始执行前置操作"
                 self.precondition.execute(self.variables.variables)
 
-            print "开始执行过程方法"
+            print u"开始执行过程方法"
             response = self.request.invoke(data_item)
             self.save_check_response(data_item, response)
 
             if self.postcondition.expr_lines:
-                print "开始执行后置操作"
+                print u"开始执行后置操作"
                 self.postcondition.execute(self.variables.variables)
 
 
@@ -174,7 +174,8 @@ class YamlInterface():
 
     # 单个请求执行
     def single_request(self, **args):
-        pass
+        response = self.request.invoke(args)
+        return response.text
 
 
 if __name__ == "__main__":

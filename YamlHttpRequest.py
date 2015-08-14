@@ -30,11 +30,11 @@ class YamlHttpRequest():
                 response = requests.delete(host + method, data=param_dict, headers=headers, auth=self.auth)
             else:
                 return None
-            print "HTTP 响应结果: {0}".format(response.text)
+            print u"HTTP 响应结果: {0}".format(response.text)
             print "-" * 120
             return response
         except urllib2.HTTPError, e:
-            print "POST/GET请求出现错误！"
-            print "POST/GET请求返回码: {0}".format(e.code)
-            print "POST/GET请求结果: {0}".format(e.read())
+            print u"POST/GET请求出现错误！"
+            print u"POST/GET请求返回码: {0}".format(e.code)
+            print u"POST/GET请求结果: {0}".format(e.read())
             return None
