@@ -62,7 +62,7 @@ def left_cmp_dict(src_dict, dst_dict):
         else:
             # 如果右侧的字典没有key，则返回False
             if not dst_dict.has_key(key):
-                print "右侧字典没有key: {0}".format(key)
+                print u"右侧字典没有key: {0}".format(key)
                 return False
             if not src_dict[key] == dst_dict[key]:
                 print "字典值不一致"
@@ -92,7 +92,7 @@ def var_expr(variables, expr_line):
     if len(find_var_lst):
         for var_name in find_var_lst:
             if not variables.has_key(var_name):
-                print "不存在全局变量: {0}".format(var_name)
+                print u"不存在全局变量: {0}".format(var_name)
                 return
             # 替换字符串
             result = result.replace("${" + var_name + "}", variables[var_name])
@@ -106,7 +106,7 @@ def var_expr(variables, expr_line):
             result = result.replace("${" + func_line[0] + "}", invoke_reserved(func_line[0]))
 
     # 3. 没有任何引用则直接赋值
-    print "{0} 全局变量/预定义函数调用后的表达式: {1}".format(expr_line, result)
+    print u"{0} 全局变量/预定义函数调用后的表达式: {1}".format(expr_line, result)
     return result
 
 
